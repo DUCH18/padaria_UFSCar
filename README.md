@@ -1,6 +1,6 @@
-# 🧑‍🍳 Padaria Web 🥐🥖
+# 🧑‍🍳 Padaria UFSCar 🥐🥖
 
-Bem-vindo(a) à **Padaria Web**, uma aplicação **Fullstack** desenvolvida para gerenciar o estoque e as vendas de uma padaria fictícia. Este projeto combina **React.js** no frontend e **Laravel** no backend, com **MySQL** como banco de dados relacional.
+Bem-vindo(a) à **Padaria UFSCar**, uma aplicação **Fullstack** desenvolvida para gerenciar o estoque e as vendas de uma padaria fictícia. Este projeto combina **React.js** no frontend e **Laravel** no backend, com **MySQL** como banco de dados relacional.
 
 ## Índice
 
@@ -61,7 +61,7 @@ Siga os passos abaixo para configurar e rodar o projeto na sua máquina.
 1. **Clone o repositório:**  
    ```bash
    git clone <link-do-repositório>
-   cd padaria-web
+   cd padaria_UFSCar
    ```
 
 2. **Configurar o backend:**  
@@ -92,4 +92,4 @@ Siga os passos abaixo para configurar e rodar o projeto na sua máquina.
 
 💡 **Dica:** Se estiver usando o **VS Code no Windows**, você pode dividir o terminal em dois pressionando Ctrl+Shift+5 e rodar cada parte da aplicação em um terminal diferente
 
-Acesse `http://localhost:5173` (ou conforme indicado pelo terminal em `./frontend`) e com isso, você estará pronto(a) para explorar o sistema de gerenciamento de estoque e vendas da Padaria Web! 😉
+Acesse `http://localhost:5173` (ou conforme indicado pelo terminal em `./frontend`) e com isso, você estará pronto(a) para explorar o sistema de gerenciamento de estoque e vendas da Padaria UFSCar! 😉
