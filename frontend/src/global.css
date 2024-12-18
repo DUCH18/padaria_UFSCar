@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Pacifico&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  @apply bg-vanilla;
+  @apply text-black;
+  @apply font-lato;
+
+  ::selection {
+    @apply bg-orange;
+    @apply text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+                      
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+                      
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    @apply bg-orange; 
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}

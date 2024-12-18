@@ -1,1 +1,0 @@
-# Bem-vindo(a) à Padaria Web, uma aplicação Fullstack desenvolvida para gerenciar o estoque e as vendas de uma padaria fictícia. Este projeto combina React.js no frontend e Laravel no backend, com MySQL como banco de dados relacional.
