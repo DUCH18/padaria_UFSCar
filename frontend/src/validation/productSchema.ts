@@ -21,10 +21,12 @@ export const productSchema = z.object({
     ),
   categoria: z
     .enum(
-      ['Pães', 'Doces', 'Salgados'], 
-      { errorMap: () => (
-        { message: 'Por favor, selecione uma categoria' }
-      )}
+      ['Pães', 'Doces', 'Salgados'],
+      {
+        errorMap: () => (
+          { message: 'Por favor, selecione uma categoria' }
+        )
+      }
     ),
   descricao: z
     .string()
@@ -33,7 +35,7 @@ export const productSchema = z.object({
   imagem: z
     .instanceof(File)
     .refine(
-      (file: File) => file?.size <= MAX_FILE_SIZE, 
+      (file: File) => file?.size <= MAX_FILE_SIZE,
       'O tamanho da imagem deve ser de até 5MB'
     )
     .refine(
@@ -42,6 +44,20 @@ export const productSchema = z.object({
     )
     .optional()
     .nullable(),
+  qtd_em_estoque: z
+    .union(
+      [
+        z
+          .number()
+          .int()
+          .min(0, 'A quantidade em estoque deve ser maior ou igual a zero'),
+        z
+          .string()
+          .min(1, 'A quantidade em estoque deve ser informada')
+          .max(4, 'A quantidade em estoque deve ser 9999 no máximo')
+          .transform((val: string) => parseInt(val))
+      ]
+    )
 });
 
 export type ProductForm = z.infer<typeof productSchema>;

@@ -33,6 +33,7 @@ class ProdutoController extends Controller
             'categoria' => 'required|in:Pães,Doces,Salgados',
             'descricao' => 'nullable|string',
             'preco' => 'required|numeric|min:0',
+            'qtd_em_estoque' => 'required|numeric|min:0',
             'imagem' => 'nullable|file|mimes:jpeg,jpg,png,svg,webp|max:2048'
         ]);
         
@@ -53,6 +54,7 @@ class ProdutoController extends Controller
                     'categoria' => $produto->categoria,
                     'descricao' => $produto->descricao,
                     'preco' => $produto->preco,
+                    'qtd_em_estoque' => $produto->qtd_em_estoque,
                     'imagem' => $produto->imagem ? asset('storage/' . $produto->imagem) : null,
                 ],
             ], 201);
@@ -91,6 +93,7 @@ class ProdutoController extends Controller
                 'categoria' => $produto->categoria,
                 'descricao' => $produto->descricao,
                 'preco' => $produto->preco,
+                'qtd_em_estoque' => $produto->qtd_em_estoque,
                 'imagem' => $produto->imagem ? asset('storage/' . $produto->imagem) : null,
             ],
         ], 201);
@@ -104,6 +107,7 @@ class ProdutoController extends Controller
             'categoria' => 'sometimes|required|in:Pães,Doces,Salgados',
             'descricao' => 'nullable|string',
             'preco' => 'sometimes|required|numeric|min:0',
+            'qtd_em_estoque' => 'sometimes|required|numeric|min:0',
             'imagem' => 'nullable|file|mimes:jpeg,jpg,png,svg,webp|max:2048',
         ]);
         

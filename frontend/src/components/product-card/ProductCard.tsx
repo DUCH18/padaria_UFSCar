@@ -1,25 +1,27 @@
+import { ImageUploader } from "./image-uploader/ImageUploader"
 import { CgSpinnerAlt } from "react-icons/cg";
 import { Category, ProductResponse } from "../../types/types"
-import ImageUploader from "./image-uploader/ImageUploader"
+import { FaBoxArchive } from "react-icons/fa6";
 
 type ProductCardProps = {
   product: ProductResponse,
   categories: Category[],
   creating?: boolean,
   editing?: boolean,
+  showQuantity?: boolean,
   prevImg?: string;
-  onImageChange?: (file: File | null) => void; // Callback para manipular mudanças de imagem
+  onImageChange?: (file: File | null) => void;
   loading?: boolean;
   pageLoad?: boolean;
 }
 
-export const ProductCard = ({ product, categories, creating, editing, prevImg, onImageChange, loading, pageLoad }: ProductCardProps) => {
+export const ProductCard = ({ product, categories, creating, editing, showQuantity, prevImg, onImageChange, loading, pageLoad }: ProductCardProps) => {
   return (
-    <div className='w-[72vw] min-w-[260px] md:max-w-[400px] lg:max-w-[290px] xl:max-w-[400px] h-[210px] bg-gray-300 rounded-md overflow-hidden shadow-custom-01 flex z-40'>
-      <div className='relative w-[50%] sm:w-[40%] flex items-center justify-center bg-orange'>
+    <div className='w-[72vw] min-w-[260px] md:max-w-[400px] lg:max-w-[290px] xl:max-w-[400px] h-[210px] bg-gray-300 shadow-custom-01 rounded-md flex relative z-40'>
+      <div className='relative w-[50%] sm:w-[40%] flex items-center justify-center bg-orange bg-opacity-80 rounded-l-md overflow-hidden'>
         <div className="flex items-center justify-center">
           {creating ? (
-            <ImageUploader onImageChange={onImageChange!} pageLoad={pageLoad}/>
+            <ImageUploader onImageChange={onImageChange!} pageLoad={pageLoad} productInitial={product.nome[0]} />
           ) : (
             editing ? (
               <ImageUploader onImageChange={onImageChange!} prevImg={prevImg} />
@@ -43,7 +45,7 @@ export const ProductCard = ({ product, categories, creating, editing, prevImg, o
           )}
         </div>
       </div>
-      <div className='w-[60%] bg-white p-3 flex flex-col justify-between'>
+      <div className='w-[60%] bg-white p-3 flex flex-col justify-between rounded-r-md'>
         {
           loading ? (
             <>
@@ -57,7 +59,7 @@ export const ProductCard = ({ product, categories, creating, editing, prevImg, o
           ) : (
             <>
               <div className="flex flex-col gap-3">
-                <p className='font-bold text-xl'>{product.nome}</p>
+                <p className='font-bold text-xl line-clamp-2'>{product.nome ? product.nome : "Nome do Produto"}</p>
                 <p className='flex items-center gap-1 rounded-full bg-orange text-brown bg-opacity-70 w-fit px-2'>
                   {categories.find((category) => category.name === product.categoria)?.icon}
                   {product.categoria}
@@ -71,6 +73,12 @@ export const ProductCard = ({ product, categories, creating, editing, prevImg, o
           )
         }
       </div >
+      {showQuantity &&
+        <p title="Quantidade em estoque" className="w-fit h-fit flex items-center gap-2 absolute z-20 -top-3 -left-3 font-bold text-lg text-white bg-orange p-2 pl-4 rounded-full">
+          <FaBoxArchive /> {product.qtd_em_estoque ? product.qtd_em_estoque : 0}
+        </p>
+      }
+      {/* TODO: adicionar circulo com número para mostar quantidade em estoque próximo ao canto inferior esquerdo da imagem */}
     </div >
   )
 }

@@ -1,3 +1,9 @@
+/**
+ * OBS: Este arquivo é um mock para simular uma API REST, 
+ * para a realização de testes de unidade e integração.
+ */
+
+// dependencies
 import { http, HttpResponse } from "msw";
 
 export const handlers = [

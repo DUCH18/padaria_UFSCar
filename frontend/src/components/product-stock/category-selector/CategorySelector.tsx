@@ -1,5 +1,5 @@
-import { Category } from "../../../types/types";
 import { IconButton } from "../../buttons/IconButton";
+import { Category } from "../../../types/types";
 
 type CategorySelectorProps = {
   categories: Category[];
@@ -7,9 +7,13 @@ type CategorySelectorProps = {
   setSelectedCategory: (category: string) => void;
 }
 
-export const CategorySelector = ({ categories, selectedCategory, setSelectedCategory }: CategorySelectorProps) => {
+export const CategorySelector = ({
+  categories,
+  selectedCategory,
+  setSelectedCategory
+}: CategorySelectorProps) => {
   return (
-    <div className='flex flex-col gap-3 items-center h-[15%]'>
+    <div className='flex flex-col gap-3 items-center'>
       <h3 className='font-pacifico text-orange self-start text-center w-full'>
         Categoria: {selectedCategory}
       </h3>
