@@ -6,6 +6,7 @@ import { PiHouseBold } from "react-icons/pi";
 import { MdOutlineMenuOpen } from "react-icons/md"
 import { FaPlus } from "react-icons/fa"
 import { TbReport } from "react-icons/tb";
+import { RiCoinsLine } from "react-icons/ri";
 
 export const AsideMenu = () => {
   const location = useLocation();
@@ -23,7 +24,7 @@ export const AsideMenu = () => {
       <div className={`absolute z-20 w-[90vw] shadow-xl shadow-gray-900 transition-all duration-500 ${open ? "" : "-translate-x-[100vw]"} lg:fixed lg:w-[32vw] lg:translate-x-0 lg:shadow-none flex flex-col gap-8 p-2 bg-orange h-screen`}>
         <FaXmark className="text-4xl text-white self-end lg:hidden" onClick={toggleMenu} />
         <nav className="py-8 px-4">
-          <h1 className="text-white font-pacifico mb-10">Padaria Web</h1>
+          <h1 className="text-white font-pacifico mb-10"><a href="/">Padaria Web</a></h1>
           <ul className="flex flex-col gap-4">
             <li className={`${isAtPath("/") ? "bg-orange text-white" : "bg-white text-brown"} w-full border-[3px] border-white rounded-full hover:bg-orange hover:text-white`}>
               <Link to="/" onClick={toggleMenu} className="flex items-center gap-4 font-bold p-3 rounded-full focus:outline-black">
@@ -38,6 +39,11 @@ export const AsideMenu = () => {
             <li className={`${isAtPath("/novo") ? "bg-orange text-white" : "bg-white text-brown"} w-full border-[3px] border-white rounded-full hover:bg-orange hover:text-white`}>
               <Link to="/novo" onClick={toggleMenu} className="flex items-center gap-4 font-bold p-3 rounded-full focus:outline-black">
                 <FaPlus className="text-lg" /> Cadastrar Novo Produto
+              </Link>
+            </li>
+            <li className={`${isAtPath("/vender") ? "bg-orange text-white" : "bg-white text-brown"} w-full border-[3px] border-white rounded-full hover:bg-orange hover:text-white`}>
+              <Link to="/vender" onClick={toggleMenu} className="flex items-center gap-4 font-bold p-3 rounded-full focus:outline-black">
+                <RiCoinsLine className="text-lg" /> Vendas
               </Link>
             </li>
           </ul>

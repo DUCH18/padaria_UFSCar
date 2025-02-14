@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_cliente')
+            /* $table->foreignId('id_cliente')
                   ->constrained('clientes')
-                  ->onUpdate('cascade');
+                  ->onUpdate('cascade'); */
             $table->foreignId('id_produto')
                   ->constrained('produtos')
                   ->onUpdate('cascade');
             $table->integer('qtd_produto')->unsigned();
             $table->dateTime('data_hora');
+            $table->enum('pagamento', ['Pix', 'Crédito', 'Débito']);
             $table->timestamps();
         });
     }

@@ -130,11 +130,3 @@ Siga os passos abaixo para configurar e rodar o projeto na sua máquina.
    > 💡 **Dica:** Se estiver usando o **VS Code no Windows**, você pode dividir o terminal em dois pressionando `Ctrl`+`Shift`+`5` e rodar cada parte da aplicação em um terminal diferente
 
 Acesse `http://localhost:5173` (ou conforme indicado pelo terminal em `./frontend`) e com isso, você estará pronto(a) para explorar o sistema de gerenciamento de estoque e vendas da Padaria Web! 😉
-
-
-Para rodar os testes unitários, basta baixar as bibliotecas sequintes
-
-   ```bash
-   pip install selenium
-   pip install PyAutoGui
-   ```

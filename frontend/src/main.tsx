@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ProductStock } from './components/product-stock/ProductStock'
 import { EditProduct } from './components/edit-product/EditProduct'
 import { CreateProduct } from './components/create-product/CreateProduct'
+import { SalesPage } from './components/sales/SalesPage'
 
 import { SharedContextProvider } from './contexts/shared-context/SharedContextProvider'
 import { CreateProductProvider } from './contexts/create-product/CreateProductProvider'
@@ -36,6 +37,16 @@ createRoot(document.getElementById('root')!).render(
               <HandleChartsProvider>
                 <ProductReports />
               </HandleChartsProvider>
+            }
+          />
+          <Route
+            path='/vender'
+            element={
+              <SharedContextProvider>
+                <HandleChartsProvider>
+                  <SalesPage />
+                </HandleChartsProvider>
+              </SharedContextProvider>
             }
           />
         </Route>

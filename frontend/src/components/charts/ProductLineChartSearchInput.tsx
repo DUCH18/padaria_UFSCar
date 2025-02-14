@@ -5,7 +5,7 @@ import { getProductSalesData } from "../../services/getProductSalesData";
 import { useContext } from "react";
 import { HandleChartsContext } from "../../contexts/charts/HandleChartsContext";
 
-export const ProductLineChartSearchInput = () => {
+export const ProductLineChartSearchInput = ({ isSale, caption }: { isSale?: boolean, caption: string }) => {
   const {
     loadingSearchDropdown,
     openSearchDropdown,
@@ -16,6 +16,7 @@ export const ProductLineChartSearchInput = () => {
     setSelectedProductName,
     handleCreateLineChart,
     setselectedProductData,
+    setSelectedProductId,
   } = useContext(HandleChartsContext);
 
   return (
@@ -35,6 +36,14 @@ export const ProductLineChartSearchInput = () => {
                 <li
                   key={product.id}
                   onClick={async () => {
+                    if (isSale) {
+                      setSelectedProductName(product.nome);
+                      setSelectedProductId(product.id);
+                      setOpenSearchDropdown(false);
+                      setLoadingChartData(false);
+                      return;
+                    }
+
                     setLoadingChartData(true);
 
                     try {
@@ -60,7 +69,7 @@ export const ProductLineChartSearchInput = () => {
           )}
         </div>
       )}
-      <p className="text-gray-400 font-bold">Pesquise pelo nome e selecione um produto para ver o seu desempenho semestral</p>
+      <p className="text-gray-400 font-bold">{caption}</p>
     </div>
   )
 }

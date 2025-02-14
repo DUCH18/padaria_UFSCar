@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Pedido;
 use App\Models\Produto;
-use App\Models\Cliente;
+// use App\Models\Cliente;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
@@ -14,7 +14,7 @@ class PedidosSeeder extends Seeder
     public function run()
     {
         $produtos = Produto::all();
-        $clientes = Cliente::all();
+        // $clientes = Cliente::all();
         $faker = \Faker\Factory::create();
 
         // Gerar pedidos para os últimos 6 meses
@@ -24,7 +24,7 @@ class PedidosSeeder extends Seeder
 
                 for ($i = 0; $i < $numPedidos; $i++) {
                     // Escolher um cliente aleatório
-                    $cliente = $clientes->random();
+                    // $cliente = $clientes->random();
 
                     // Gerar quantidade aleatória dentro de um intervalo razoável
                     $qtdVendida = rand(1, 10);
@@ -36,12 +36,15 @@ class PedidosSeeder extends Seeder
                             ->startOfMonth()
                             ->addDays(rand(0, 29)) // Data aleatória no mês
                             ->setTime(rand(8, 20), rand(0, 59), rand(0, 59)); // Hora aleatória
+                        
+                        $pagamento = $faker->randomElement(['Pix', 'Crédito', 'Débito']);
 
                         Pedido::create([
-                            'id_cliente' => $cliente->id,
+                            // 'id_cliente' => $cliente->id,
                             'id_produto' => $produto->id,
                             'qtd_produto' => $qtdVendida,
                             'data_hora' => $dataPedido,
+                            'pagamento' => $pagamento,
                         ]);
 
                         // Atualizar estoque

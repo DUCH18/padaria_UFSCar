@@ -22,7 +22,7 @@ export const ProductReports = () => {
         Relatório de Vendas
       </h2>
       {/* Line Chart */}
-      <ProductLineChartSearchInput />
+      <ProductLineChartSearchInput caption='Pesquise pelo nome e selecione um produto para ver o seu desempenho semestral'/>
       <div className="w-[90vw] max-w-[600px] overflow-hidden bg-white shadow-custom-01 shadow-gray-400 rounded-lg p-4 mx-auto">
         <h4 className="font-bold text-xl text-start">Desempenho Semestral (últimos 6 meses)</h4>
         <p className="font-bold text-3xl text-orange mt-2">{selectedProductName || "Selecione um produto"}</p>

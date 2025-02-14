@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pedido;
+use App\Models\Produto;
 use Illuminate\Support\Carbon;
 use DB;
 
@@ -13,10 +14,11 @@ class PedidoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'id_cliente' => 'required|exists:clientes,id',
+            // 'id_cliente' => 'required|exists:clientes,id',
             'id_produto' => 'required|exists:produtos,id',
             'qtd_produto' => 'required|numeric|min:1',
             'data_hora' => 'required|date_format:Y-m-d H:i:s',
+            'pagamento' => 'required|in:Pix,Crédito,Débito',
         ]);
 
         try {
@@ -114,5 +116,5 @@ class PedidoController extends Controller
                 'message' => 'Erro ao buscar os produtos mais vendidos: ' . $e->getMessage(),
             ], 500);
         }
-}
+    }
 }

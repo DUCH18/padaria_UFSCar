@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::statement('ALTER TABLE produtos ADD imagem MEDIUMBLOB AFTER preco');
+        Schema::table('produtos', function (Blueprint $table) {
+            DB::statement('ALTER TABLE produtos ADD qtd_em_estoque INT NOT NULL DEFAULT 0 AFTER preco');
+        });
     }
 
     /**
@@ -19,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('imagem');
+        Schema::table('produtos', function (Blueprint $table) {
+            Schema::dropIfExists('qtd_em_estoque');
+        });
     }
 };

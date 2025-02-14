@@ -19,6 +19,8 @@ type HandleChartsContextProps = {
   openDateRange: boolean;
   setOpenDateRange: (value: boolean) => void;
   fourBestSellers: ProductChartData[] | null;
+  selectedProductId: number | null;
+  setSelectedProductId: (value: number) => void;
 };
 
 export const HandleChartsContext = createContext<HandleChartsContextProps>({
@@ -42,5 +44,7 @@ export const HandleChartsContext = createContext<HandleChartsContextProps>({
   handleCreatePieChart: () => { },
   openDateRange: false,
   setOpenDateRange: () => { },
-  fourBestSellers: null
+  fourBestSellers: null,
+  selectedProductId: null,
+  setSelectedProductId: () => { }
 });

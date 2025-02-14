@@ -20,6 +20,7 @@ export const HandleChartsProvider = ({ children }: { children: ReactNode }) => {
     { qtd_vendida: 0, mes: 'Nov' },
     { qtd_vendida: 0, mes: 'Dez' },
   ]);
+  const [selectedProductId, setSelectedProductId] = useState<number | null>(null);
 
   const handleCreateLineChart = async (search: string) => {
     if (search.length < 3) {
@@ -28,6 +29,8 @@ export const HandleChartsProvider = ({ children }: { children: ReactNode }) => {
       setProductsFound([]);
 
       setSelectedProductName('');
+
+      setSelectedProductId(null);
 
       setselectedProductData([
         { qtd_vendida: 0, mes: 'Jul' },
@@ -111,7 +114,9 @@ export const HandleChartsProvider = ({ children }: { children: ReactNode }) => {
         handleCreatePieChart,
         openDateRange,
         setOpenDateRange,
-        fourBestSellers
+        fourBestSellers,
+        selectedProductId,
+        setSelectedProductId,
       }}
     >
       {children}

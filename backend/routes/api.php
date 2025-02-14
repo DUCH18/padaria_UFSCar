@@ -11,3 +11,4 @@ Route::put('produtos/{id}', [ProdutoController::class, 'update']);
 Route::delete('produtos/{id}', [ProdutoController::class, 'destroy']);
 Route::get('relatorio/{id}', [PedidoController::class, 'relatorioMensal']);
 Route::get('best-sellers', [PedidoController::class, 'getFourBestSellers']);
+Route::post('vendas', [PedidoController::class, 'store']);
